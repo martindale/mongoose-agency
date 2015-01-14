@@ -1,0 +1,32 @@
+{
+  "name": "mongoose-agency",
+  "version": "0.0.0",
+  "description": "a bulletin board style job queue for mongoose and node",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gordonwritescode/mongoose-agency.git"
+  },
+  "keywords": [
+    "job",
+    "queue",
+    "mongoose"
+  ],
+  "author": "Gordon Hall <gordon@bitpay.com>",
+  "license": "LGPLv3",
+  "bugs": {
+    "url": "https://github.com/gordonwritescode/mongoose-agency/issues"
+  },
+  "homepage": "https://github.com/gordonwritescode/mongoose-agency",
+  "dependencies": {
+    "eventemitter2": "^0.4.14",
+    "merge": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "sinon": "^1.12.2"
+  }
+}
