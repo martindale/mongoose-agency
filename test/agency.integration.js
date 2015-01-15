@@ -109,6 +109,19 @@ describe('Agency', function() {
       });
     });
 
+    it('should pass the arguments to the completion function', function(done) {
+      agency5.subscribe('agency.argument-test', function(jobdata, complete) {
+        complete(null, 'foo', 'bar', 'baz');
+      });
+      agency4.publish('agency.argument-test', {}, function(err, a, b, c) {
+        expect(err).to.not.be.ok;
+        expect(a).to.equal('foo');
+        expect(b).to.equal('bar');
+        expect(c).to.equal('baz');
+        done();
+      });
+    });
+
   });
 
 });
