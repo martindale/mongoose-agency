@@ -23,10 +23,13 @@
   "homepage": "https://github.com/gordonwritescode/mongoose-agency",
   "dependencies": {
     "eventemitter2": "^0.4.14",
+    "hat": "0.0.3",
     "merge": "^1.2.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",
+    "mockgoose": "^1.10.7",
+    "mongoose": "^3.8.21",
     "sinon": "^1.12.2"
   }
 }
