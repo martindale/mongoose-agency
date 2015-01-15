@@ -76,7 +76,7 @@ describe('Agency', function() {
     it('should create a job document in the database', function(done) {
       var job = agency4.publish('agency.test', { foo: 'bar' });
       process.nextTick(function() {
-        var Job = agency4.source.model(agency4.options.model);
+        var Job = agency4.source.model(agency4.options.jobModel);
         Job.findOne({ _id: job._id }, function(err, j) {
           should.not.exist(err);
           j.should.be.ok;
