@@ -99,7 +99,7 @@ describe('Agency', function() {
     });
 
     it('should notify the agency when the job is completed', function(done) {
-      agency4.subscribe('agency.completion-test', function(jobdata, complete) {
+      agency5.subscribe('agency.completion-test', function(jobdata, complete) {
         expect(jobdata).to.be.ok;
         complete();
       });
