@@ -2,6 +2,8 @@ var expect = require('chai').expect;
 var should = require('chai').should();
 var mongoose = require('mongoose');
 var sinon = require('sinon');
+var async = require('async');
+var inflect = require('i')();
 var Agency = require('../lib/agency');
 
 var source, agency1, agency2, agency3, agency4, agency5;
@@ -14,7 +16,21 @@ before(function(done) {
 });
 
 after(function(done) {
-  done();
+  Agency(source()).source.once('open', function() {
+    var coll = this.collections;
+    var defaults = Agency.DEFAULTS;
+
+    async.series([
+      function dropJobsCollection(done) {
+        var name = inflect.pluralize(defaults.jobModel.toLowerCase());
+        coll[name].drop(done);
+      },
+      function dropCompletionsCollection(done) {
+        var name = inflect.pluralize(defaults.completionModel.toLowerCase());
+        coll[name].drop(done);
+      },
+    ], done);
+  });
 });
 
 describe('Agency', function() {
