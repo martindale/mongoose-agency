@@ -7,7 +7,6 @@ var Agency = require('../lib/agency');
 var source, agency1, agency2, agency3, agency4, agency5;
 
 before(function(done) {
-  //mockgoose(mongoose);
   source = function() {
     return mongoose.createConnection('mongodb://localhost:27017/agency-test');
   };
@@ -75,14 +74,14 @@ describe('Agency', function() {
     
     it('should create a job document in the database', function(done) {
       var job = agency4.publish('agency.test', { foo: 'bar' });
-      process.nextTick(function() {
+      setTimeout(function() {
         var Job = agency4.source.model(agency4.options.jobModel);
         Job.findOne({ _id: job._id }, function(err, j) {
           should.not.exist(err);
           j.should.be.ok;
           done();
         });
-      });
+      }, 300);
     });
 
   });
